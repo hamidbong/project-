@@ -48,5 +48,10 @@ Lancez le playbook principal pour déployer toute l'architecture :
 ```
 ### Verification
 * Accédez à `http://example.com` (ou à l'IP du load balancer) pour vérifier que l'application est accessible.
-- Utilisez des commandes DNS, comme dig, pour vérifier que le DNS résout example.com vers l'IP du load balancer.
+- Utilisez des commandes DNS, comme `dig`, pour vérifier que le DNS résout `example.com` vers l'IP du load balancer.
+## Rôles Ansible
+1. Rôle `webserver` : Installe le serveur web (Apache ou NGINX) et déploie l'application sur chaque serveur web.
+2. Rôle `loadbalancer` : Installe et configure NGINX pour équilibrer la charge entre les deux serveurs web.
+3. Rôle `dns` : Installe et configure Bind9 pour la résolution DNS, permettant d'accéder à l'application via `example.com`.
+
 
