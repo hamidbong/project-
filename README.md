@@ -21,3 +21,24 @@ Ce projet utilise Ansible pour déployer une application web sur deux serveurs d
 * Accès SSH configuré vers tous les serveurs.
 + Ansible 2.9+.
 - Système d'exploitation ubuntu
+## Configuration de l'inventaire
+Définissez les adresses IP de chaque serveur dans `inventory.ini` :
+```
+[webservers]
+web1 ansible_host=192.168.1.10
+web2 ansible_host=192.168.1.11
+
+[loadbalancer]
+loadbalancer ansible_host=192.168.1.20
+
+[dns]
+dnsserver ansible_host=192.168.1.30
+```
+## Installation
+1. Clonez le dépôt :
+```bash
+  git clone https://github.com/votre-utilisateur/deploiement-web-ansible.git
+  cd deploiement-web-ansible
+```
+
+
