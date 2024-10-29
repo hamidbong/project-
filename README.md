@@ -47,6 +47,6 @@ Lancez le playbook principal pour déployer toute l'architecture :
   ansible-playbook -i inventory.ini playbook.yml
 ```
 ### Verification
-* Accédez à http://example.com (ou à l'IP du load balancer) pour vérifier que l'application est accessible.
+* Accédez à `http://example.com` (ou à l'IP du load balancer) pour vérifier que l'application est accessible.
 - Utilisez des commandes DNS, comme dig, pour vérifier que le DNS résout example.com vers l'IP du load balancer.
 
