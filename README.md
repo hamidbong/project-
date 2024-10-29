@@ -25,14 +25,15 @@ Ce projet utilise Ansible pour déployer une application web sur deux serveurs d
 Définissez les adresses IP de chaque serveur dans `inventory.ini` :
 ```
 [webservers]
-web1 ansible_host=192.168.1.10
-web2 ansible_host=192.168.1.11
+web1 ansible_host=192.168.1.10 ansible_user=admin
+web2 ansible_host=192.168.1.11 ansible_user=admin
 
 [loadbalancer]
-loadbalancer ansible_host=192.168.1.20
+loadbalancer ansible_host=192.168.1.20 ansible_user=admin
 
 [dns]
-dnsserver ansible_host=192.168.1.30
+dnsserver ansible_host=192.168.1.30 ansible_user=admin
+
 ```
 ## Installation
 1. Clonez le dépôt :
@@ -52,6 +53,9 @@ Lancez le playbook principal pour déployer toute l'architecture :
 ## Rôles Ansible
 1. Rôle `webserver` : Installe le serveur web (Apache ou NGINX) et déploie l'application sur chaque serveur web.
 2. Rôle `loadbalancer` : Installe et configure NGINX pour équilibrer la charge entre les deux serveurs web.
-3. Rôle `dns` : Installe et configure Bind9 pour la résolution DNS, permettant d'accéder à l'application via `example.com`.
+3. Rôle `dns` : Installe et configure Bind9 pour la résolution DNS, permettant d'accéder à l'application via `mywensite.com`.
+## Contribution
+Les contributions sont les bienvenues ! Merci de suivre les bonnes pratiques Git pour faire vos pull requests.
+
 
 
