@@ -40,5 +40,13 @@ dnsserver ansible_host=192.168.1.30
   git clone https://github.com/votre-utilisateur/deploiement-web-ansible.git
   cd deploiement-web-ansible
 ```
-
+2. Assurez-vous que tous les serveurs sont accessibles via SSH et que vous disposez des privilèges sudo.
+## utilisation
+Lancez le playbook principal pour déployer toute l'architecture :
+```bash
+  ansible-playbook -i inventory.ini playbook.yml
+```
+### Verification
+* Accédez à http://example.com (ou à l'IP du load balancer) pour vérifier que l'application est accessible.
+- Utilisez des commandes DNS, comme dig, pour vérifier que le DNS résout example.com vers l'IP du load balancer.
 
