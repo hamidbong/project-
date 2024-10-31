@@ -38,8 +38,8 @@ dnsserver ansible_host=192.168.1.30 ansible_user=admin
 ## Installation
 1. Clonez le dépôt :
 ```bash
-  git clone https://github.com/votre-utilisateur/deploiement-web-ansible.git
-  cd deploiement-web-ansible
+  git clone https://github.com/hamidbong/project-.git
+  cd project-
 ```
 2. Assurez-vous que tous les serveurs sont accessibles via SSH et que vous disposez des privilèges sudo.
 ## utilisation
@@ -53,7 +53,7 @@ Lancez le playbook principal pour déployer toute l'architecture :
 ## Rôles Ansible
 1. Rôle `webserver` : Installe le serveur web (Apache ou NGINX) et déploie l'application sur chaque serveur web.
 2. Rôle `loadbalancer` : Installe et configure NGINX pour équilibrer la charge entre les deux serveurs web.
-3. Rôle `dns` : Installe et configure Bind9 pour la résolution DNS, permettant d'accéder à l'application via `mywensite.com`.
+3. Rôle `dns` : Installe et configure Bind9 pour la résolution DNS, permettant d'accéder à l'application via `example.com`.
 ## Contribution
 Les contributions sont les bienvenues ! Merci de suivre les bonnes pratiques Git pour faire vos pull requests.
 
