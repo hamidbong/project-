@@ -25,14 +25,14 @@ Ce projet utilise Ansible pour déployer une application web sur deux serveurs d
 Définissez les adresses IP de chaque serveur dans `inventory.ini` :
 ```
 [webservers]
-web1 ansible_host=192.168.1.10 ansible_user=admin
-web2 ansible_host=192.168.1.11 ansible_user=admin
+web1 ansible_host=192.168.100.210
+web2 ansible_host=192.168.100.211
 
 [loadbalancer]
-loadbalancer ansible_host=192.168.1.20 ansible_user=admin
+loadbalancer ansible_host=192.168.100.220
 
 [dns]
-dnsserver ansible_host=192.168.1.30 ansible_user=admin
+dnsserver ansible_host=192.168.100.230
 
 ```
 ## Installation
