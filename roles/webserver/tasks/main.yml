@@ -1,0 +1,75 @@
+- name: Mettre à jour l'index des paquets
+  apt:
+    update_cache: yes
+
+#- name: Mettre à jour tous les paquets installés
+#  apt:
+#    upgrade: dist
+#    update_cache: yes
+
+- name: install nginx and
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: start nginx service
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+    # 5. Créer le répertoire du site web
+- name: Créer le répertoire du site web
+  file:
+    path: /var/www/bongwebsite
+    state: directory
+    owner: bong
+    group: bong
+    mode: '0755'
+
+- name: Supprimer un fichier spécifique index.html
+  file:
+    path: /var/www/bongwebsite/index.html
+    state: absent
+
+- name: Copy NGINX index.html from local to webserver
+  copy:
+    src: /home/bong/web/index.html
+    dest: /var/www/bongwebsite/
+- name: Copy NGINX style.css from local to webserver
+  copy:
+    src: /home/bong/web/style.css
+    dest: /var/www/bongwebsite/
+
+- name: Copy NGINX configuration from local Ansible host
+  copy:
+    src: /home/bong/web/bongwebsite.com
+    dest: /etc/nginx/sites-available/bongwebsite
+
+     # 8. Activer le site en créant un lien symbolique
+- name: Activer le site NGINX
+  file:
+    src: /etc/nginx/sites-available/bongwebsite
+    dest: /etc/nginx/sites-enabled/bongwebsite
+    state: link
+
+
+     # 9. Supprimer le fichier de configuration par défaut (facultatif)
+- name: Supprimer le fichier de configuration par défaut
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+     # 10. Tester la configuration NGINX
+- name: Tester la configuration NGINX
+  command: nginx -t
+  register: nginx_test
+  ignore_errors: yes
+
+    # 11. Recharger NGINX si le test est réussi
+- name: Recharger NGINX si le test est réussi
+  systemd:
+    name: nginx
+    state: reloaded
+  when: nginx_test.rc == 0
