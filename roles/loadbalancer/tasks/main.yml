@@ -1,0 +1,26 @@
+# roles/loadbalancer/tasks/main.yml
+- name: Mettre à jour l'index des paquets
+  apt:
+    update_cache: yes
+
+#- name: Mettre à jour tous les paquets installés
+#  apt:
+#    upgrade: dist
+#    update_cache: yes
+
+- name: install nginx and
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Configurer NGINX pour le load balancing
+  template:
+    src: nginx.conf  # Assurez-vous que ce template existe
+    dest: /etc/nginx/
+  notify: Redémarrer NGINX
+
+- name: Tester et redémarrer NGINX
+  command: nginx -t
+  notify: Redémarrer NGINX
+
