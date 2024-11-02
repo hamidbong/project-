@@ -11,7 +11,7 @@ Ce projet automatise le déploiement d'une application web répartie sur plusieu
 - [Contribution](#contribution)
 - [Licence](#licence)
 ## Aperçu
-Ce projet utilise Ansible pour déployer une application web sur deux serveurs distincts, un load balancer NGINX, et un serveur DNS Bind9. La configuration NGINX répartit la charge entre les deux serveurs web pour assurer la haute disponibilité, tandis que Bind9 fournit la résolution DNS pour le domaine mywebsite.com.
+Ce projet utilise Ansible pour déployer une application web sur deux serveurs distincts, un load balancer NGINX, et un serveur DNS Bind9. La configuration NGINX répartit la charge entre les deux serveurs web pour assurer la haute disponibilité, tandis que Bind9 fournit la résolution DNS pour le domaine example.com.
 ## Architecture
 1. Serveurs web : Deux serveurs (web1 et web2) hébergeant l'application.
 2. Load Balancer : Un serveur utilisant NGINX pour répartir la charge entre web1 et web2.
