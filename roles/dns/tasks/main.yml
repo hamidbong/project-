@@ -22,7 +22,7 @@
 
 - name: Configurer les zones DNS
   template:
-    src: /home/bong/project-/templates/db.bongwebsite.com      # Template pour la zone DNS
+    src: db.bongwebsite.com      # Template pour la zone DNS
     dest: /etc/bind/db.bongwebsite.com
   notify: Redémarrer Bind9
 

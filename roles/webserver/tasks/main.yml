@@ -33,14 +33,13 @@
     path: /var/www/bongwebsite/index.html
     state: absent
 
-- name: Copy NGINX index.html from local to webserver
-  copy:
-    src: /home/bong/web/index.html
+- name: Copier le dossier web vers le serveur web
+  ansible.builtin.copy:
+    src: hamidbong.github.io/
     dest: /var/www/bongwebsite/
-- name: Copy NGINX style.css from local to webserver
-  copy:
-    src: /home/bong/web/style.css
-    dest: /var/www/bongwebsite/
+    owner: www-data
+    group: www-data
+    mode: '0755'
 
 - name: Copy NGINX configuration from local Ansible host
   copy:
