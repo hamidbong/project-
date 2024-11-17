@@ -1,9 +1,3 @@
-- name: Déploiement de l'application sur les serveurs web
-  hosts: webservers
-  become: true
-  roles:
-    - webserver
-
 - name: Configuration du Load Balancer avec NGINX
   hosts: loadbalancerserv
   become: true
